@@ -1,0 +1,82 @@
+<!-- HIDE AND SHOW ELEMENT -->
+<!-- SHOW WHEN ENTER OR LEAVE MOUSE -->
+<!-- <div (mouseenter)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- SHOW DOING CLICK CLOSE WINDOW MOVING MOUSE -->
+<!-- <div (click)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- SHOW DOING CLICK CLOSE WINDOW CLICK ON X -->
+<div *ngIf="isLoggedIn">
+  <button (click)="hideEditor()" *ngIf="!element" class="closeEditor">X</button>
+</div>
+<div (click)="showEditor()">
+  <!-- SHOW DOING CLICK CLOSE WINDOW MOVING MOUSE -->
+  <!-- <div (click)="showEditor()" (mouseleave)="hideEditor()"> -->
+  <!-- SHOW DOING CLICK CLOSE WINDOW CLICK ON X / -->
+  <!---------------------STANDARD VIEW ARTICLE --------------------->
+  <!-- DARKMODE -->
+  <div
+    [ngClass]="{ 'dark-profile': darkMode }"
+    id="home"
+    class="list row"
+    [ngClass]="{ 'area-dark': darkMode }"
+  >
+    <div class="col-md-6 article-text-public">
+      <!-- <h4>Acerca de</h4> -->
+
+      <!-- SHOW ALL ARTICLES TO PUBLIC (ngFor) -->
+      <div
+        class="bannerImage"
+        *ngFor="let banner of banner; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveBanner(banner, i)"
+      >
+        <!-- <img src="./assets/images/banner/hubble0.jpg" alt="banner" /> -->
+        <p
+          [ngClass]="{ 'dark-profile': darkMode }"
+          data-aos="flip-right"
+          class="sentence list-group-item.active"
+        >
+          {{ banner.description }}
+          <span>
+            <cite>{{ banner.title }}</cite>
+          </span>
+        </p>
+        <!-- SHOW ALL ARTICLES TO PUBLIC (ngFor)  / -->
+        <!-- SHOW ICONS EDIT IF LOGGED IN  -->
+        <!-- ICONS EDITION -->
+        <div class="icons-edit-banner" *ngIf="isLoggedIn">
+          <img
+            src="../../../../../assets/icons/edit/pencil-solid.svg"
+            alt=""
+            width="20"
+          />
+        </div>
+        <!-- ICONS EDITION -->
+        <!-- SHOW ICONS EDIT IF LOGGED IN  / -->
+      </div>
+
+      <!-- SHOW ARTICLE TO EDIT TO THE USER REGISTERED ONLY -->
+      <!-- HIDE AND SHOW ELEMENT -->
+      <div *ngIf="element == false">
+        <div class="col-md-6 article-text-edit" *ngIf="isLoggedIn">
+          <app-banner-details
+            [viewMode]="true"
+            [currentBanner]="ccccurrentBanner"
+          ></app-banner-details>
+        </div>
+      </div>
+      <!-- HIDE AND SHOW ELEMENT / -->
+      <!--------------------- STANDARD VIEW ARTICLE /--------------------->
+    </div>
+  </div>
+  <!-- CLOSE DOING CLICK ON BUTTON-->
+  <!-- MUST BE OUT OF <div (click)="showEditor()">-->
+  <!-- <button (click)="hideEditor()">Cerrar Editor</button> -->
+
+  <!-- <button (mouseleave)="hideEditor()">Cerrar Ventana</button> -->
+
+  <!-- HIDE AND SHOW ELEMENT -->
+  <!-- <div *ngIf="element == true"></div> -->
+  <!-- <div (mouseenter)="showEditor()"></div> -->
+  <!-- <button (mouseleave)="hideEditor()">Hide Data</button> -->
+  <!-- </div> -->
+</div>

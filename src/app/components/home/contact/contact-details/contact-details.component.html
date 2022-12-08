@@ -1,0 +1,78 @@
+<!-- VIEW MODE. ELSE EDIT MODE (BELOW) -->
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentContact.id">
+    <h4>contact.details.component - viewMode</h4>
+    <div>
+      <label><strong>Title:</strong></label>
+      {{ currentContact.title }}
+    </div>
+    <div>
+      <label><strong>Description:</strong></label>
+      {{ currentContact.description }}
+    </div>
+    <a class="badge badge-warning" routerLink="/contact/{{ currentContact.id }}">
+      Edit
+    </a>
+  </div>
+
+  <div *ngIf="!currentContact">
+    <br />
+    <p>Please click on a Contact...</p>
+  </div>
+</div>
+
+<!-- EDIT MODE -->
+<ng-template #editable>
+  <div *ngIf="currentContact.id" class="edit-form">
+    <h4>Editando Item</h4>
+
+    <!-- FORM -->
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentContact.title"
+          name="title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentContact.description"
+          name="description "
+          rows="10"
+          cols="70"
+        >
+        here
+      </textarea
+        >
+      </div>
+    </form>
+    <!-- FORM /-->
+
+    <button class="badge badge-danger mr-2" (click)="deleteContact()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateContact()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentContact.id">
+    <br />
+    <p>Cannot access this Contact...</p>
+  </div>
+</ng-template>

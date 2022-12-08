@@ -1,0 +1,177 @@
+<!-- Show Hide Nav Menu Snippet | https://codemyui.com/ -->
+
+<div class="area"></div>
+<div
+  class="navBar_pc"
+  [ngClass]="{ 'dark-nav': darkMode }"
+  id="navbar_pc"
+  data-aos="fade-in"
+  data-aos-duration="800"
+  @myInsertRemoveTrigger
+>
+  <nav class="main-menu">
+    <ul>
+      <li class="has-subnav">
+        <a>
+          <div
+            class="navBar_btn"
+            [ngClass]="selectedBtn === 'home' ? 'selected_btn' : ''"
+            (click)="scroll('home')"
+          >
+            <img
+              class="menuicon"
+              src="../../../../assets/icons/menu/arrow-up-solid.svg"
+              alt="Home"
+              width="17"
+            />
+            <span class="nav-text">Home</span>
+          </div>
+        </a>
+      </li>
+
+      <li
+        *ngIf="darkMode"
+        (click)="darkmodeHandler()"
+        class="has-subnav darkmode"
+      >
+        <a>
+          <div class="navBar_btn">
+            <img
+              class="menuicon"
+              src="../../../../assets/icons/menu/moonblack.svg"
+              alt="Tema Claro"
+              width="17"
+            />
+            <span *ngIf="darkMode" (click)="darkmodeHandler()" class="nav-text"
+              >Claro</span
+            >
+          </div>
+        </a>
+      </li>
+
+      <li
+        *ngIf="!darkMode"
+        (click)="darkmodeHandler()"
+        class="has-subnav lightmode"
+      >
+        <a>
+          <div class="navBar_btn">
+            <img
+              class="menuicon"
+              src="../../../../assets/icons/menu/sun.svg"
+              alt="Tema Obscuro"
+              width="17"
+            />
+            <span *ngIf="!darkMode" (click)="darkmodeHandler()" class="nav-text"
+              >Obscuro</span
+            >
+          </div>
+        </a>
+      </li>
+
+      <li class="has-subnav">
+        <a>
+          <div
+            class="navBar_btn"
+            [ngClass]="selectedBtn === 'about' ? 'selected_btn' : ''"
+            (click)="scroll('about')"
+          >
+            <img
+              class="menuicon"
+              src="../../../../assets/icons/menu/about.svg"
+              alt="Acerca"
+              width="17"
+            />
+            <span class="nav-text">Acerca</span>
+          </div>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a>
+          <div
+            class="navBar_btn"
+            [ngClass]="selectedBtn === 'experience' ? 'selected_btn' : ''"
+            (click)="scroll('experience')"
+          >
+            <img
+              class="menuicon"
+              src="../../../../assets/icons/menu/experience.svg"
+              alt="Experiencia"
+              width="20"
+            />
+            <span class="nav-text">Experiencia</span>
+          </div>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a>
+          <div
+            class="navBar_btn"
+            [ngClass]="selectedBtn === 'education' ? 'selected_btn' : ''"
+            (click)="scroll('education')"
+          >
+            <img
+              class="menuicon"
+              src="../../../../assets/icons/menu/education.svg"
+              alt="Educación"
+              width="17"
+            />
+            <span class="nav-text">Educación</span>
+          </div>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a>
+          <div
+            class="navBar_btn"
+            [ngClass]="selectedBtn === 'skill' ? 'selected_btn' : ''"
+            (click)="scroll('skill')"
+          >
+            <img
+              class="menuicon"
+              src="../../../../assets/icons/menu/skill.svg"
+              alt="Habilidades"
+              width="17"
+            />
+            <span class="nav-text">Habilidades</span>
+          </div>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a>
+          <div
+            class="navBar_btn"
+            [ngClass]="selectedBtn === 'project' ? 'selected_btn' : ''"
+            (click)="scroll('project')"
+          >
+            <img
+              class="menuicon"
+              src="../../../../assets/icons/menu/list-check.svg"
+              alt="Proyectos"
+              width="17"
+            />
+            <span class="nav-text">Proyectos</span>
+          </div>
+        </a>
+      </li>
+      <li class="has-subnav">
+        <a>
+          <div
+            class="navBar_btn"
+            [ngClass]="selectedBtn === 'contact' ? 'selected_btn' : ''"
+            (click)="scroll('contact')"
+          >
+            <img
+              class="menuicon"
+              src="../../../../assets/icons/menu/contact.svg"
+              alt="Contacto"
+              width="17"
+            />
+            <span class="nav-text">Contacto</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<!-- Show Hide Nav Menu Snippet | https://codemyui.com/ -->

@@ -1,0 +1,120 @@
+<!-- HIDE AND SHOW ELEMENT -->
+<!---------------- THIS TOOLS WORK ON EDITOR! NO ON VIEW CARDS ---------------->
+<!-- SHOW WHEN ENTER OR LEAVE MOUSE -->
+<!-- <div (mouseenter)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- SHOW DOING CLICK CLOSE WINDOW MOVING MOUSE -->
+<!-- <div (click)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- CLOSE WINDOW WITH CLICK -->
+<!-- <div (click)="hideEditor()"> -->
+<!-- <div *ngIf="element == true"> -->
+<!------------------------------------ ANALIZED ERASABLE  --------------------------------------->
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ----------------->
+<!-- viewMode ORIGINAL -->
+<!-- !viewMode ADDED -->
+<!-- !viewMode TO SHOW EDITING FORM DIRECTLY -->
+<div *ngIf="!viewMode; else editable">
+  <!-- IF currentBanner.id TRUE-->
+  <div *ngIf="currentBanner.id">
+    <h4>banner.details.component - viewMode</h4>
+    <!-- TITLE -->
+    <div>
+      <label><strong>Title:</strong></label>
+      {{ currentBanner.title }}
+    </div>
+    <!-- DESCRIPTION -->
+    <div>
+      <label><strong>Description:</strong></label>
+      {{ currentBanner.description }}
+    </div>
+    <!-- LINK TO EDITE MODE -->
+    <a
+      class="badge badge-warning"
+      routerLink="/banner/edit/{{ currentBanner.id }}"
+    >
+      Edit
+    </a>
+    <!-- LINK TO EDITE MODE / -->
+  </div>
+  <!-- IF currentBanner.id TRUE / -->
+
+  <div *ngIf="!currentBanner">
+    <br />
+    <p>Please click on a Banner...</p>
+  </div>
+</div>
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ---------------/ -->
+<!------------------------------------ ANALIZED ERASABLE / --------------------------------------->
+
+<!-- OPTION 2 -->
+<!-- ERASE VIEW MODE BLOCK (above) -->
+<!-- ERASE ng-template (below) -->
+<!-- ADD <div *ngIf="viewMode">edit mode...</div> (below) -->
+
+<!-------------- EDIT MODE VIEW------------------>
+<ng-template #editable>
+  <div *ngIf="currentBanner.id" class="edit-form">
+    <h4>Editando Banner</h4>
+    <!-- BUTTONS EDIT -->
+    <div class="article-buttons-edit">
+      <!-- DELETE -->
+      <!-- <button class="badge badge-danger mr-2" (click)="confirmDelete()">
+        Eliminar
+      </button> -->
+      <!-- DELETE / -->
+      <!-- UPDATE -->
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateBanner()"
+      >
+        Actualizar
+      </button>
+      <!-- MESSAGE "This banner was updated successfully" -->
+      <p class="{{ message ? 'message' : '' }}">
+        {{ message }}
+      </p>
+      <!-- MESSAGE "This banner was updated successfully" / -->
+      <!-- UPDATE / -->
+    </div>
+    <!-- BUTTONS EDIT / -->
+    <!-- FORM -->
+    <form class="editable">
+      <!-- TITLE -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentBanner.title"
+          name="title"
+        />
+      </div>
+      <!-- TITLE / -->
+      <!-- DESCRIPTION -->
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentBanner.description"
+          name="description "
+          rows="5"
+          cols="90"
+        ></textarea>
+      </div>
+      <!-- DESCRIPTION / -->
+    </form>
+    <!-- FORM /-->
+  </div>
+  <!-- IF currentExperience.id FAIL -->
+  <!-- <div *ngIf="!currentBanner.id"> -->
+  <!-- <br /> -->
+  <!-- <p>Seleccione un item a editar</p> -->
+  <!-- </div> -->
+</ng-template>
+<!-------------- EDIT MODE VIEW----------------/ -->
+
+<!-- HIDE AND SHOW ELEMENT -->
+<!-- <button (click)="hideEditor()">Cerrar Editor</button> -->

@@ -1,0 +1,50 @@
+<!-- RESTRICT EDIT TO UNAUTHORIZED USERS -->
+<!-- IF isLoggedIn FAIL: FORBIDDEN -->
+<div *ngIf="!isLoggedIn; else editMode">FORBIDDEN</div>
+
+<!-- ELSE SHOW ARTICLE TO EDIT -->
+<ng-template #editMode>
+  <div *ngIf="isLoggedIn">
+    <div class="submit-form">
+      <h4>Añadiendo Educación</h4>
+      <div *ngIf="!submitted">
+        <!-- FORM -->
+
+        <!-- TITLE -->
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            [(ngModel)]="education.title"
+            name="title"
+          />
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="education.description"
+            name="description"
+            rows="5"
+            cols="40"
+          ></textarea>
+        </div>
+
+        <!-- SUBMIT -->
+        <button (click)="toBack()" class="btn btn-secondary">Volver</button>
+        <button (click)="saveEducation()" class="btn btn-primary">Añadir</button>
+        <!--                                  routerLink="home" 'home'READS THE ROUTE OF ACTIVE PAGE (home/projects/add/home)-->
+        <!-- <a class="nav-link" routerLink="home">HOME</a> -->
+
+        <!-- FORM /-->
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,29 @@
+<!---------------------STANDARD VIEW ARTICLE --------------------->
+<div class="list row">
+  <div class="col-md-6 article-text-public">
+    <!-- <h4>Acerca de</h4> -->
+
+    <!-- SHOW ALL ARTICLES TO PUBLIC (ngFor) -->
+    <ul class="list-group">
+      <li
+        class="list-group-item list-group-image"
+        *ngFor="let experience of experience; let i = index"
+        [class.active]="i == currentIndex"
+        data-aos="flip-right"
+      >
+        <img
+          src="../../../../../assets/images/experience/experienceLogo.png"
+          alt="image"
+          width="97%"
+          [ngClass]="{ 'dark-profile': darkMode }"
+        />
+      </li>
+    </ul>
+    <!-- SHOW ALL ARTICLES TO PUBLIC (ngFor)  / -->
+  </div>
+</div>
+<!--------------------- STANDARD VIEW ARTICLE /--------------------->
+
+<div class="experience-image">
+  <!-- Fundación Formar -->
+</div>

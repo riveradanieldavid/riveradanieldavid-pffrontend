@@ -1,0 +1,251 @@
+// MYRESUME
+.navBar_pc {
+  z-index: 10;
+  position: fixed;
+  top: 15vh;
+  margin-left: 0.7vw;
+  opacity: 1;
+  box-shadow: 1px 1px 10px 1px;
+  transition: all 1s;
+  left: -1vw;
+  background-color: dodgerblue;
+  border-radius: 10px;
+  box-shadow: inset 2px -4px 20px 5px darkblue;
+
+  :hover {
+    //opacity: 0.8;
+    transition: 0.2s cubic-bezier(0.18, 1.89, 0.30, 1.0);
+    transform: scale(1.03);
+    color: white;
+    //border-radius: 7px;
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+  }
+}
+
+.navBar_pc:hover {
+  width: 114px;
+
+}
+
+
+.navBar_btn {
+  padding: 1.1vh;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 109px;
+}
+
+.selected_btn {
+  background-color: deepskyblue;
+  font-weight: 800;
+}
+
+.dark-nav {
+  color: #ddd;
+  transition: all 1s;
+}
+
+// MYRESUME /
+
+// Show Hide Nav Menu Snippet | https://codemyui.com
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+
+.main-menu:hover,
+nav.main-menu.expanded {
+  width: 133px;
+  overflow: visible;
+}
+
+.main-menu {
+  left: -7px;
+  width: 34px;
+  overflow: hidden;
+  -webkit-transition: width .05s linear;
+  transition: width .05s linear;
+  // -webkit-transform: translateZ(0) scale(1, 1);
+  z-index: 10;
+}
+
+.main-menu>ul {
+  margin: 7px 3px;
+}
+
+.main-menu li {
+  position: relative;
+  display: block;
+  width: 133px;
+}
+
+.main-menu li>a {
+  position: relative;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #999;
+  font-family: arial;
+  font-size: 12px;
+  text-decoration: none;
+  // -webkit-transform: translateZ(0) scale(1, 1);
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  color: white;
+
+}
+
+.main-menu .nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.main-menu .nav-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 87px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu>ul.logout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.no-touch .scrollable.hover {
+  overflow-y: hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+  overflow-y: auto;
+  overflow: visible;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu li:hover>a,
+nav.main-menu li.active>a,
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a {
+  color: #fff;
+  background-color: slateblue;
+}
+
+.area {
+  float: left;
+  background: #e2e2e2;
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(https://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+// Show Hide Nav Menu Snippet | https://codemyui.com/
+
+
+.menuicon {
+  margin-right: 12px;
+  padding: 1px;
+}
+
+nav.main-menu li.darkmode>a:hover {
+  background-color: white;
+  color: black !important;
+
+}
+
+nav.main-menu li.lightmode>a:hover {
+  background-color: darkslategray;
+  color: black !important;
+}
+
+
+
+// .obscuro:hover {
+//   color: black !important;
+// }
+
+// .claro:hover {
+//   color: white !important;
+// }
+
+
+// .navBar_pc {
+//   backdrop-filter: blur(5px);
+//   background: none;
+//   color: black;
+// }
+
+.navBar_pclight {
+  backdrop-filter: blur(0);
+  background-color: red;
+}
+
+
+@media (max-width: 540px) {
+
+  .main-menu:hover,
+  nav.main-menu.expanded {
+    width: 37px;
+    overflow: hidden;
+  }
+
+  .navBar_pc:hover {
+    width: auto;
+
+  }
+
+}

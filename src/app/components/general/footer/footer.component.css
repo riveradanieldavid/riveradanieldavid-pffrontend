@@ -1,0 +1,35 @@
+a {
+  /* text-decoration: none; */
+  color: unset;
+}
+ul {
+  padding: 0;
+}
+#contact {
+  background-color: #2196f3;
+  border-radius: 14px;
+  max-width: 97%;
+  margin: auto;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  /* padding: 10px; */
+  /* margin: 1px -11px 1px; */
+  /* position: relative; */
+}
+.grid-item {
+  padding: 10px;
+  text-align: center;
+}
+
+.pwd {
+  text-align: center;
+  display: block;
+}
+
+@media (max-width: 540px) {
+  .grid-container {
+    grid-template-columns: auto;
+  }
+}

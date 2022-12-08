@@ -1,0 +1,134 @@
+<!------------------------------------ ANALIZED ERASABLE  --------------------------------------->
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ----------------->
+<!-- viewMode ORIGINAL -->
+<!-- !viewMode ADDED -->
+<!-- !viewMode TO SHOW EDITING FORM DIRECTLY -->
+<div *ngIf="!viewMode; else editable">
+  <!-- IF currentProject.id TRUE-->
+  <div *ngIf="currentProject.id">
+    <h4>project.details.component - viewMode</h4>
+    <!-- TITLE -->
+    <div>
+      <label><strong>Title:</strong></label>
+      {{ currentProject.title }}
+    </div>
+    <!-- DESCRIPTION -->
+    <div>
+      <label><strong>Description:</strong></label>
+      {{ currentProject.description }}
+    </div>
+    <!-- LINK TO EDITE MODE -->
+    <a
+      class="badge badge-warning"
+      routerLink="/project/edit/{{ currentProject.id }}"
+    >
+      Edit
+    </a>
+    <!-- LINK TO EDITE MODE / -->
+  </div>
+  <!-- IF currentProject.id TRUE / -->
+
+  <div *ngIf="!currentProject">
+    <br />
+    <p>Please click on a Project...</p>
+  </div>
+</div>
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ---------------/ -->
+<!------------------------------------ ANALIZED ERASABLE / --------------------------------------->
+
+<!-- OPTION 2 -->
+<!-- ERASE VIEW MODE BLOCK (above) -->
+<!-- ERASE ng-template (below) -->
+<!-- ADD <div *ngIf="viewMode">edit mode...</div> (below) -->
+
+<!-------------- EDIT MODE VIEW------------------>
+<ng-template #editable>
+  <div *ngIf="currentProject.id" class="edit-form">
+    <h4>Editando Project</h4>
+    <!-- BUTTONS EDIT -->
+    <div class="article-buttons-edit">
+      <!-- DELETE -->
+      <button class="badge badge-danger mr-2" (click)="confirmDelete()">
+        Eliminar
+      </button>
+      <!-- DELETE / -->
+      <!-- UPDATE -->
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateProject()"
+      >
+        Actualizar
+      </button>
+      <!-- MESSAGE "This project was updated successfully" -->
+      <span class="{{ message ? 'message' : '' }}">
+        {{ message }}
+      </span>
+      <!-- MESSAGE "This project was updated successfully" / -->
+      <!-- UPDATE / -->
+    </div>
+    <!-- BUTTONS EDIT / -->
+    <!-- FORM -->
+    <form class="editable">
+      <!-- TITLE -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentProject.title"
+          name="title"
+        />
+      </div>
+      <!-- TITLE / -->
+      <!-- DESCRIPTION -->
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentProject.description"
+          name="description "
+          rows="3"
+          cols="90"
+        ></textarea>
+      </div>
+      <!-- DESCRIPTION / -->
+      <!-- LINK -->
+      <div class="form-group">
+        <label for="link">Link</label>
+        <input
+          type="text"
+          class="form-control"
+          id="link"
+          [(ngModel)]="currentProject.link"
+          name="link"
+        />
+      </div>
+      <!-- LINK / -->
+      <!-- LINKDESCRIPTION -->
+      <div class="form-group">
+        <label for="linkdescription">Link Description</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="linkdescription"
+          [(ngModel)]="currentProject.linkdescription"
+          name="linkdescription "
+          rows="1"
+          cols="1"
+        ></textarea>
+      </div>
+      <!-- LINKDESCRIPTION / -->
+    </form>
+    <!-- FORM /-->
+  </div>
+  <!-- IF currentProject.id FAIL -->
+  <!-- <div *ngIf="!currentProject.id">
+    <br />
+    <p>Seleccione un item a editar</p>
+  </div> -->
+</ng-template>
+<!-------------- EDIT MODE VIEW----------------/ -->

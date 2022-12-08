@@ -1,0 +1,95 @@
+<!-- HIDE AND SHOW ELEMENT -->
+<!-- SHOW WHEN ENTER OR LEAVE MOUSE -->
+<!-- <div (mouseenter)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- SHOW DOING CLICK CLOSE WINDOW MOVING MOUSE -->
+<!-- <div (click)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- SHOW DOING CLICK CLOSE WINDOW CLICK ON X -->
+<div *ngIf="isLoggedIn">
+  <button (click)="hideEditor()" *ngIf="!element" class="closeEditor">X</button>
+</div>
+<div (click)="showEditor()">
+  <!-- SHOW DOING CLICK CLOSE WINDOW CLICK ON X / -->
+  <!---------------------STANDARD VIEW ARTICLE --------------------->
+  <!-- DARKMODE -->
+  <div id="profile" class="list row" [ngClass]="{ 'dark-content': darkMode }">
+    <div class="col-md-6 article-text-public">
+      <!-- <div *ngFor="let about of about">
+        TEST
+        {{ about.id }}
+      </div> -->
+      <!-- <div>{{ currentAbout.title }}TEST</div> -->
+      <!---------------------------------------------------- SHOW ALL ARTICLES TO PUBLIC (ngFor) -->
+      <ul class="list-group" *ngIf="!isLoggedIn; else editable">
+        <!-- RETRIEVE DATA WITHOUT FOR -->
+        <!-- <li class="list-group-item"> -->
+        <!-- {{ currentAbout.title }} -->
+        <!-- </li> -->
+        <!-- STYLES IN FIRST ELEMENT ONLY -->
+        <!-- [ngClass]="{ first: first, last: last }" -->
+        <li>
+          <!-- DATA ---------------------->
+          <div class="article-image article-image-about">
+            <!-- {{ about.id }} test aaaaaaaaa -->
+            <img
+              [ngClass]="{ 'dark-profile': darkMode }"
+              data-aos="flip-right"
+              src="../../../../../assets/images/about/me1.jpg"
+              alt="Rivera Daniel Developer"
+            />
+          </div>
+          <!-- DATA --------------------/ -->
+        </li>
+    </ul>
+      <!---------------------------------------------------- SHOW ALL ARTICLES TO PUBLIC (ngFor) / -->
+
+      <!---------------------------------------------------- SHOW ALL ARTICLES TO EDIT (ngFor)  -->
+      <ng-template #editable>
+        <ul class="list-group">
+          <!-- ICONS EDITION ---------------------------------------->
+
+          <!-- ICONS EDITION -------------------------------------- / -->
+          <!-- RETRIEVE DATA WITHOUT FOR -->
+          <!-- <li class="list-group-item"> -->
+          <!-- {{ currentAbout.title }} -->
+          <!-- </li> -->
+          <li>
+            <!-- DATA ---------------------->
+            <div class="article-image article-image-about">
+              <!-- {{ about.id }} test aaaaaaaaa -->
+              <img
+                [ngClass]="{ 'dark-profile': darkMode }"
+                data-aos="flip-right"
+                src="../../../../../assets/images/about/me2.png"
+                alt="Rivera Daniel Developer"
+              />
+            </div>
+            <!-- DATA --------------------/ -->
+          </li>
+        </ul>
+      </ng-template>
+      <!---------------------------------------------------- SHOW ALL ARTICLES TO EDIT (ngFor)  / -->
+    </div>
+    <div></div>
+    <!-- SHOW ARTICLE TO EDIT TO THE USER REGISTERED ONLY DETAILS ---------->
+    <!-- HIDE AND SHOW ELEMENT -->
+    <div *ngIf="element == false">
+      <div class="col-md-6 article-text-edit" *ngIf="isLoggedIn">
+        <app-about-details
+          [viewMode]="true"
+          [currentAbout]="ccccurrentAbout"
+          class="article-details-edit"
+        ></app-about-details>
+      </div>
+    </div>
+    <!-- HIDE AND SHOW ELEMENT / -->
+    <!-- SHOW ARTICLE TO EDIT TO THE USER REGISTERED ONLY DETAILS --------/ -->
+
+    <!--------------------- STANDARD VIEW ARTICLE /--------------------->
+  </div>
+  <!-- </div> -->
+  <!-- CLOSE DOING CLICK ON BUTTON-->
+  <!-- MUST BE OUT OF <div (click)="showEditor()">-->
+  <!-- <button (click)="hideEditor()">Cerrar Editor</button> -->
+
+  <!-- <button (mouseleave)="hideEditor()">Cerrar Ventana</button> -->
+</div>

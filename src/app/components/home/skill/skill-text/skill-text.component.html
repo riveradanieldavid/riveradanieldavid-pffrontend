@@ -1,0 +1,126 @@
+<!-- SHOW DOING CLICK CLOSE WINDOW CLICK ON X -->
+<div *ngIf="isLoggedIn">
+  <button (click)="hideEditor()" *ngIf="!element" class="closeEditor closeEditorSkill">X</button>
+</div>
+
+<div (click)="showEditor()">
+  <div [ngClass]="{ 'dark-content': darkMode }">
+    <div>
+      <!-- SHOW ALL ARTICLES TO PUBLIC (ngFor) -->
+      <div id="skill" *ngIf="!isLoggedIn; else editable">
+        <!-- <img class="slide_bg" src="assets/ExperienceBg.jpg" alt=""> -->
+        <div class="slide_bg" [ngClass]="{ 'dark-bg': darkMode }"></div>
+
+        <div class="slide_content" *ngFor="let skill of skill; let i = index">
+          <div class="skillcontainer">
+            <label
+              class="detailed_text"
+              [ngClass]="{ 'dark-content': darkMode }"
+              for="progressbar"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-bottom"
+            >
+              {{ skill.nameskill }}
+            </label>
+
+            <div
+              class="progress progress_bar"
+              data-aos="fade-right"
+              data-aos-anchor-placement="center-bottom"
+            >
+              <!-- THIS [ngStyle]="{ width: skill.levelskil }" BRING DATA FROM ITS .ts FILE BUT USEING SQL DB NO NEED -->
+              <div
+                class="progress-bar"
+                role="progressbar"
+                [ngStyle]="{ 'width.%': skill.levelskill }"
+                aria-valuenow="25"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {{ skill.levelskill }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SHOW ALL ARTICLES TO PUBLIC (ngFor)  / -->
+
+      <!-- SHOW ALL ARTICLES TO EDIT (ngFor)  -->
+      <ng-template #editable>
+        <div
+          id="skill"
+          *ngFor="let skill of skill; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveSkill(skill, i)"
+        >
+          <!-- <img class="slide_bg" src="assets/ExperienceBg.jpg" alt=""> -->
+          <div class="slide_bg" [ngClass]="{ 'dark-bg': darkMode }"></div>
+
+          <div class="slide_content">
+            <div class="container">
+              <!-- ICONS EDITION -->
+              <div class="icons-edit">
+                <a class="iconseditskill">
+                  <img
+                    src="../../../../../assets/icons/edit/pencil-solid-white.svg"
+                    alt=""
+                    width="24"
+                  />
+                </a>
+                <!-- ADD -->
+                <a routerLink="skills/add" class="add iconseditskill">
+                  <img
+                    src="../../../../assets/icons/edit/plus-solid-white.svg"
+                    alt=""
+                    width="24"
+                  />
+                </a>
+              </div>
+              <!-- ICONS EDITION / -->
+
+              <label
+                class="detailed_text"
+                [ngClass]="{ 'dark-content': darkMode }"
+                for="progressbar"
+                data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom"
+              >
+                {{ skill.nameskill }}
+              </label>
+
+              <div
+                class="progress progress_bar"
+                data-aos="fade-right"
+                data-aos-anchor-placement="center-bottom"
+              >
+                <!-- THIS [ngStyle]="{ width: skill.levelskil }" BRING DATA FROM ITS .ts FILE BUT USEING SQL DB NO NEED -->
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  [ngStyle]="{ 'width.%': skill.levelskill }"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  {{ skill.levelskill }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <!-- SHOW ALL ARTICLES TO EDIT (ngFor)  / -->
+    </div>
+    <!-- SHOW ARTICLE TO EDIT TO THE USER REGISTERED ONLY -->
+    <!-- HIDE AND SHOW ELEMENT -->
+    <div *ngIf="element == false">
+      <div class="col-md-6 article-text-edit" *ngIf="isLoggedIn">
+        <app-skill-details
+          [viewMode]="true"
+          [currentSkill]="ccccurrentSkill"
+          class="article-details-edit"
+        ></app-skill-details>
+      </div>
+    </div>
+  </div>
+</div>

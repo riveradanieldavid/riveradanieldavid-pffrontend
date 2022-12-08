@@ -1,0 +1,32 @@
+<!-- RESTRICT VIEW TO UNAUTHORIZED USERS -->
+<!-- IF isLoggedIn FAIL: FORBIDDEN -->
+<div *ngIf="!isLoggedIn; else editMode">FORBIDDEN</div>
+
+<!-- CONTENT FOR AUTHORIZED USERS -->
+<!-- ELSE SHOW ARTICLE -->
+<ng-template #editMode>
+  <!--STANDARD VIEW ARTICLE -->
+  <div class="list row">
+    <div class="col-md-6">
+      <h4>Contact</h4>
+      <!-- SHOW ALL ARTICLES (ngFor) -->
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let contact of contact; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveContact(contact, i)"
+        >
+          <h6>{{ contact.title }}</h6>
+          <p>{{ contact.description }}</p>
+        </li>
+      </ul>
+    </div>
+    <!-- SHOW ARTICLE TO EDIT -->
+    <div class="col-md-6">
+      <app-contact-details [viewMode]="true" [currentContact]="ccccurrentContact">
+      </app-contact-details>
+    </div>
+  </div>
+  <!-- STANDARD VIEW ARTICLE /-->
+</ng-template>

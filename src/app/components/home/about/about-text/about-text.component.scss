@@ -1,0 +1,133 @@
+// CENTER TITLE NAME PROFILE
+@media (max-width: 640px) {
+  .article-text-edit {
+    margin: auto;
+  }
+}
+
+// BAD EFFECT AT EDITOR
+// @media (max-width: 890px) {
+//   .article-text-edit {
+//     left: 0rem;
+//     margin: auto;
+//   }
+// }
+
+// CENTER TITLE NAME PROFILE /
+
+.first {
+  background: none;
+  color: aliceblue;
+  position: absolute;
+  left: -19.7rem;
+  font-size: 1.4rem;
+  text-align: center;
+  border: 0;
+  right: 99%;
+  top: 37vh;
+  padding: inherit;
+}
+
+.first .addabout {
+  display: none;
+}
+
+.first h5 {
+  font-size: 1.9rem;
+  margin: auto;
+}
+
+@media (max-width: 890px) {
+  .first {
+    right: unset;
+  }
+}
+
+
+@media (max-width: 890px) {
+  .first {
+    background: none;
+    color: white;
+    position: relative;
+    left: auto;
+    font-size: 1.7rem;
+    text-align: center;
+    top: -4vh;
+    border: none;
+    margin: -27px auto -47px !important;
+  }
+
+  .first h6 {
+    font-size: 1.7rem;
+  }
+}
+
+h6 .articletitle {
+  font-size: 33px !important;
+
+}
+
+/* DRAG AND DROP */
+.wrapper {
+  margin: 25px auto;
+  max-width: 600px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.container {
+  width: 45%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.movie-list {
+  width: 80%;
+  border: solid 1px #ccc;
+  min-height: 60px;
+  display: inline-block;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 25px;
+}
+
+.movie-block {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.movie-block:last-child {
+  border: none;
+}
+
+.movie-list.cdk-drop-list-dragging .movie-block:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* DRAG AND DROP / */

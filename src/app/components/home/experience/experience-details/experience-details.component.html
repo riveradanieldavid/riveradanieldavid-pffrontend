@@ -1,0 +1,108 @@
+<!------------------------------------ ANALIZED ERASABLE  --------------------------------------->
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ----------------->
+<!-- viewMode ORIGINAL -->
+<!-- !viewMode ADDED -->
+<!-- !viewMode TO SHOW EDITING FORM DIRECTLY -->
+<div *ngIf="!viewMode; else editable">
+  <!-- IF currentExperience.id TRUE-->
+  <div *ngIf="currentExperience.id">
+    <h4>experience.details.component - viewMode</h4>
+    <!-- TITLE -->
+    <div>
+      <label><strong>Title:</strong></label>
+      {{ currentExperience.title }}
+    </div>
+    <!-- DESCRIPTION -->
+    <div>
+      <label><strong>Description:</strong></label>
+      {{ currentExperience.description }}
+    </div>
+    <!-- LINK TO EDITE MODE -->
+    <a
+      class="badge badge-warning"
+      routerLink="/experience/edit/{{ currentExperience.id }}"
+    >
+      Edit
+    </a>
+    <!-- LINK TO EDITE MODE / -->
+  </div>
+  <!-- IF currentExperience.id TRUE / -->
+
+  <div *ngIf="!currentExperience">
+    <br />
+    <p>Please click on a Experience...</p>
+  </div>
+</div>
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ---------------/ -->
+<!------------------------------------ ANALIZED ERASABLE / --------------------------------------->
+
+<!-- OPTION 2 -->
+<!-- ERASE VIEW MODE BLOCK (above) -->
+<!-- ERASE ng-template (below) -->
+<!-- ADD <div *ngIf="viewMode">edit mode...</div> (below) -->
+
+<!-------------- EDIT MODE VIEW------------------>
+<ng-template #editable>
+  <div *ngIf="currentExperience.id" class="edit-form">
+    <h4>Editando Experience</h4>
+    <!-- BUTTONS EDIT -->
+    <div class="article-buttons-edit">
+      <!-- DELETE -->
+      <button class="badge badge-danger mr-2" (click)="confirmDelete()">
+        Eliminar
+      </button>
+      <!-- DELETE / -->
+      <!-- UPDATE -->
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateExperience()"
+      >
+        Actualizar
+      </button>
+      <!-- MESSAGE "This experience was updated successfully" -->
+      <span class="{{ message ? 'message' : '' }}">
+        {{ message }}
+      </span>
+      <!-- MESSAGE "This experience was updated successfully" / -->
+      <!-- UPDATE / -->
+    </div>
+    <!-- BUTTONS EDIT / -->
+    <!-- FORM -->
+    <form class="editable">
+      <!-- TITLE -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentExperience.title"
+          name="title"
+        />
+      </div>
+      <!-- TITLE / -->
+      <!-- DESCRIPTION -->
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentExperience.description"
+          name="description "
+          rows="5"
+          cols="90"
+        ></textarea>
+      </div>
+      <!-- DESCRIPTION / -->
+    </form>
+    <!-- FORM /-->
+  </div>
+  <!-- IF currentExperience.id FAIL -->
+  <!-- <div *ngIf="!currentExperience.id">
+    <br />
+    <p>Seleccione un item a editar</p>
+  </div> -->
+</ng-template>
+<!-------------- EDIT MODE VIEW----------------/ -->

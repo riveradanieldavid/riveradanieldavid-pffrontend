@@ -1,0 +1,130 @@
+<!-- HIDE AND SHOW ELEMENT -->
+<!---------------- THIS TOOLS WORK ON EDITOR! NO ON VIEW CARDS ---------------->
+<!-- SHOW WHEN ENTER OR LEAVE MOUSE -->
+<!-- <div (mouseenter)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- SHOW DOING CLICK CLOSE WINDOW MOVING MOUSE -->
+<!-- <div (click)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- CLOSE WINDOW WITH CLICK -->
+<!-- <div  (click)="hideEditor()"> -->
+
+<!-- <div *ngIf="element == true"> -->
+<!------------------------------------ ANALIZED ERASABLE  --------------------------------------->
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ----------------->
+<!-- viewMode ORIGINAL -->
+<!-- !viewMode ADDED -->
+<!-- !viewMode TO SHOW EDITING FORM DIRECTLY -->
+<div *ngIf="!viewMode; else editable">
+  <!-- IF currentAbout.id TRUE-->
+  <div *ngIf="currentAbout.id">
+    <h4>about.details.component - viewMode</h4>
+    <!-- TITLE -->
+    <div>
+      <label><strong>Title:</strong></label>
+      {{ currentAbout.title }}
+    </div>
+    <!-- DESCRIPTION -->
+    <div>
+      <label><strong>Description:</strong></label>
+      {{ currentAbout.description }}
+    </div>
+    <!-- LINK TO EDITE MODE -->
+    <a
+      class="badge badge-warning"
+      routerLink="/about/edit/{{ currentAbout.id }}"
+    >
+      Edit
+    </a>
+    <!-- LINK TO EDITE MODE / -->
+  </div>
+  <!-- IF currentAbout.id TRUE / -->
+
+  <div *ngIf="!currentAbout">
+    <br />
+    <p>Please click on a About...</p>
+  </div>
+</div>
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ---------------/ -->
+<!------------------------------------ ANALIZED ERASABLE / --------------------------------------->
+
+<!-- OPTION 2 -->
+<!-- ERASE VIEW MODE BLOCK (above) -->
+<!-- ERASE ng-template (below) -->
+<!-- ADD <div *ngIf="viewMode">edit mode...</div> (below) -->
+
+<!-------------- EDIT MODE VIEW------------------>
+<ng-template #editable>
+  <div *ngIf="currentAbout.id" class="edit-form">
+    <h4>Editando About</h4>
+    <!-- BUTTONS EDIT -->
+    <div class="article-buttons-edit">
+      <!-- DELETE -->
+      <button class="badge badge-danger mr-2" (click)="confirmDelete()">
+        Eliminar
+      </button>
+      <!-- DELETE / -->
+      <!-- UPDATE -->
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateAbout()"
+      >
+        Actualizar
+      </button>
+      <!-- MESSAGE "This about was updated successfully" -->
+      <p class="{{ message ? 'message' : '' }}">
+        {{ message }}
+      </p>
+      <!-- MESSAGE "This about was updated successfully" / -->
+      <!-- UPDATE / -->
+    </div>
+    <!-- BUTTONS EDIT / -->
+    <!-- FORM -->
+    <form class="editable">
+      <!-- ID -->
+      <!-- <div class="form-group">
+        <label for="id">ID</label>
+        <input
+          type="text"
+          class="form-control"
+          id="id"
+          [(ngModel)]="currentAbout.id"
+          name="id"
+        />
+      </div> -->
+      <!-- ID / -->
+      <!-- TITLE -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentAbout.title"
+          name="title"
+        />
+      </div>
+      <!-- TITLE / -->
+      <!-- DESCRIPTION -->
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentAbout.description"
+          name="description "
+          rows="5"
+          cols="90"
+        ></textarea>
+      </div>
+      <!-- DESCRIPTION / -->
+    </form>
+    <!-- FORM /-->
+  </div>
+  <!-- IF currentAbout.id FAIL -->
+  <!-- <div *ngIf="!currentAbout.id">
+    <br />
+    <p>Seleccione un item a editar</p>
+  </div> -->
+</ng-template>
+<!-------------- EDIT MODE VIEW----------------/ -->

@@ -1,0 +1,67 @@
+.header-content {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 10px; */
+  width: 100%;
+}
+
+.logo {
+  flex-flow: wrap;
+  display: flex;
+}
+.spacer {
+  flex: auto;
+}
+
+.links {
+  margin: 0 9px 0;
+  display: flex;
+  align-items: center;
+}
+.links a {
+  margin: 3px;
+  color: white;
+}
+.auth {
+  display: flex;
+}
+.navmenu {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  left: 0;
+  background-color: dodgerblue !important;
+  /* ORIGINAL */
+  /* box-shadow: inset 7px -11px 20px 7px darkblue; */
+  /* BARMENU */
+  /* box-shadow: inset 2px -4px 20px 5px darkblue; */
+  /* NEW */
+  /* box-shadow: inset 3px -10px 20px 7px #2a2aff; */
+  box-shadow: inset 7px -11px 20px 7px #00008e;
+  border: 1px solid black;
+  border-radius: 47px;
+}
+.menu {
+  display: flex;
+  height: 47px;
+  align-items: center;
+  flex-direction: column;
+}
+.menu li {
+  margin-top: -12px;
+}
+.menu li:hover {
+  background-color: cornflowerblue;
+  border-radius: 23px;
+}
+ul.home {
+  padding: 14px;
+}
+.yoprogramo {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}

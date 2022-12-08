@@ -1,0 +1,39 @@
+#skill {
+  max-width: 57vw;
+  margin: auto;
+}
+
+#skill.active {
+  box-shadow: 0px 0px 0px 7px blue;
+}
+
+.slide_content {
+  color: white;
+  margin-top: -1rem;
+}
+
+.progress_bar {
+  margin-bottom: 4vh;
+  height: 1.5rem;
+  box-shadow: 0px 0px 10px 2px rgb(114, 114, 114);
+
+}
+
+.detailed_text {
+  color: white;
+}
+
+@media (max-width: 540px) {
+  #skill {
+    max-width: 70vw;
+
+  }
+}
+
+@media (max-width: 890px) {
+  #skill {
+    margin-bottom: 5rem;
+
+  }
+
+}

@@ -1,0 +1,842 @@
+/* You can add global styles to this file, and also import other style files */
+@import './normalize.css';
+
+/* MY RESET GENERAL CSS*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  /* font-family: 'Roboto', sans-serif; */
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* MY RESET GENERAL CSS / */
+
+body {
+  /* max-width: 90%; */
+  display: block;
+  margin: auto;
+  /* background-color: aqua; */
+  /* border: 1px solid #000; */
+  background-image: url('./assets/images/banner/hubble3.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* BOOSTRAP */
+.container {
+  max-width: 1700px !important;
+}
+
+.home {
+  box-shadow: inset 0px 0px 20px 17px black;
+  margin: auto;
+  max-width: 94%;
+}
+
+
+
+/************ ARTICLE GENERAL EXPERIENCE **************/
+
+.title-card {
+  height: 53px;
+  color: white;
+  margin: 2rem 0.6rem 0rem;
+}
+
+.article-card {
+  /* background-color: black; */
+  /* width: fit-content; */
+  border-radius: 4px;
+  margin-top: 37px;
+  /* border: 1px solid white; */
+  // box-shadow: 0px 0px 15px 9px white;
+}
+
+.article-header {
+  display: flex;
+  align-items: center;
+  // margin-top: -3rem;
+}
+
+/* article-image-component */
+.article-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: black; */
+  /* border-radius: 105px; */
+  margin-top: -0.3rem;
+  height: 13rem;
+  /* width: 17rem; */
+  /* margin-left: auto; */
+  /* margin-right: auto;*/
+}
+
+.article-image img {
+  width: 13rem;
+  /* border-radius: 7%; */
+  // position: absolute;
+  // top: 1vh;
+  // box-shadow: 0px 7px 0px 7px dodgerblue;
+  // border: 16px solid blue;
+  // padding: 1rem;
+  // backdrop-filter: invert(1);
+}
+
+
+.article-image>h4,
+.article-image>h5 {
+  font-size: 1.7rem;
+  font-family: serif;
+  color: white;
+}
+
+/* article-text-component */
+.article-text {
+  margin-right: 23rem;
+  min-width: 51%;
+  overflow-wrap: break-word;
+  // margin-bottom: 0.7rem;
+}
+
+.article-text-header {
+  margin: 0 !important;
+  display: flex;
+  align-items: baseline;
+}
+
+// ADD FORM
+.submit-form {
+  max-width: 570px;
+  margin: auto;
+  margin-top: 100px;
+  color: white;
+  height: 57vh;
+  ;
+}
+
+
+.icons-edit {
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: -10px -15px -11px;
+}
+
+
+.icons-edit img {
+  margin: 7px 7px 0px;
+}
+
+
+/* PARA ABOUT */
+/* ARTICLE DINAMIC CARD */
+.about-dynamic-card,
+.article-dynamic-card {
+  display: flex;
+  // height: 100vh;
+  position: relative;
+}
+
+.about-image-article,
+.image-article {
+  min-width: 17rem;
+  max-width: 17rem;
+  margin: 0 2rem 0;
+}
+
+/* PARA ABOUT / */
+
+.article-dynamic-card>h4,
+.article-dynamic-card>h5 {
+  color: white;
+  text-align: center;
+}
+
+.edit-form h4 {
+  color: black;
+}
+
+.article-text-public {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.article-text-public li {
+  // border: 1px solid;
+  // box-shadow: 0px 0px 11px 0px dodgerblue;
+  margin: 10px;
+  height: 15rem;
+  // overflow: hidden;
+}
+
+
+.list-group-item.active {
+  background-color: white;
+  color: black;
+  border-radius: 0;
+  box-shadow: 0px 0px 0px 7px blue;
+  border: none;
+  margin: 10px;
+}
+
+
+.list-group-item+.list-group-item.active {
+  margin: 10px;
+}
+
+.list-group-item {
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.list-group-image {
+  display: flex;
+  align-items: center;
+}
+
+.list-group li a {
+  color: darkblue;
+}
+
+
+
+/* ARTICLE EDIT */
+.article-text-edit {
+  right: 0;
+  z-index: 10;
+  left: 0;
+  bottom: 0%;
+  position: fixed;
+  background-color: dodgerblue;
+  // min-width: 77%;
+
+  // min-width: max-content;
+  // border-radius: 4px;
+  // min-width: 100%;
+  //THIS  STYLE OF BELOW MUST BE IN THE LAST POSITION (margin-left: 22rem;)
+  margin-left: 22rem;
+  // padding-right: 16%;
+  // min-width: -webkit-fill-available;
+
+}
+
+.closeEditor {
+  position: fixed;
+  z-index: 11;
+  bottom: 19.3rem;
+  right: 1vw;
+  font-size: 17px;
+  background: no-repeat;
+  border: none;
+  line-height: 12px;
+  padding: 7px 10px 13px 10px;
+}
+
+
+/* MESSAGE EDIT ACTUALIZED */
+.message {
+  // font-weight: bold;
+  animation-name: buttonUpdate;
+  animation-duration: 2s;
+  border-radius: 4px;
+  padding: 3px 10px 3px;
+  visibility: hidden;
+  // height: auto;
+  // margin-left: 1rem;
+  // position: absolute;
+  // left: 170px;
+  // top: 44.1px;
+  background-color: blue;
+  color: white;
+  margin: -1px 11px auto;
+  font-size: 15px;
+}
+
+@keyframes buttonUpdate {
+  from {
+    visibility: visible;
+    background-color: blue;
+    color: white;
+  }
+
+  to {
+    background-color: blue;
+    color: white;
+    display: none;
+  }
+}
+
+/* MESSAGE EDIT ACTUALIZED */
+
+.article-details-edit {
+  width: 100vw;
+}
+
+.edit-form {
+  /* display: flex; */
+  white-space: nowrap;
+  /* align-items: flex-start; */
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: initial;
+  /* flex-direction: row-reverse; */
+}
+
+form.editable {
+  /* display: flex; */
+  box-shadow: 0px 0px 0px 7px blue;
+  width: 100%;
+  /* border-radius: 4px; */
+}
+
+label {
+  line-height: 1.1rem;
+}
+
+input.form-control,
+textarea.form-control {
+  z-index: 3;
+  width: 100%;
+  /* border-radius: 4px; */
+}
+
+.article-buttons-edit {
+  margin: 1rem;
+  display: flex;
+  align-items: baseline;
+}
+
+/************ ARTICLE GENERAL EXPERIENCE ************* / */
+.articletitle {
+  margin-right: 14%;
+
+}
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1400px) {
+  .container {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (min-width: 1080px) {
+  .article-text-edit {
+    min-width: 77%;
+    padding-right: 21rem;
+  }
+}
+
+
+
+@media (max-width: 890px) {
+  .article-text-edit {
+    margin-left: auto;
+  }
+
+  .article-image img {
+    width: 10rem;
+    top: -40vh;
+    padding: 0.7rem;
+    border-radius: 23px;
+  }
+
+  .article-dynamic-card {
+    display: block;
+  }
+
+
+  .edit-form {
+    display: inline;
+  }
+
+  .article-header {
+    align-items: flex-start;
+    margin-top: -2rem;
+  }
+
+  /* ACOMODAR TARJETAS TEXTO E IMAGEN */
+
+  .article-dynamic-card {
+    display: flex;
+  }
+
+  .article-text {
+    margin-right: auto;
+    width: 100%;
+  }
+
+  h6 .articletitle {
+    font-size: 17px !important;
+  }
+
+  .articletitle {
+    width: 77%;
+
+  }
+
+
+  .image-article {
+    min-width: 10rem;
+    max-width: 10rem;
+    margin: 0 -11px 0 0;
+  }
+
+
+  /* TO ABOUT */
+  .about-dynamic-card {
+    display: block;
+  }
+
+  .container {
+    max-width: 93% !important;
+    margin: auto;
+
+  }
+
+  .article-text-public li {
+    height: 12.2rem !important;
+
+  }
+
+  .article-text-public-project li {
+    height: 15rem !important;
+
+  }
+
+  .article-text-edit {
+    width: 80%;
+    left: 2rem;
+    // bottom: 31px;
+  }
+
+
+}
+
+@media (max-width: 1190px) {
+  .article-text-edit {
+    min-width: fit-content;
+  }
+}
+
+
+@media (max-width: 720px) {
+  .image-article {
+    display: none;
+  }
+
+  .article-text-public li {
+    height: 12rem;
+  }
+
+  .article-text-public li {
+    height: auto !important;
+
+  }
+
+  .closeEditor {
+    right: 0;
+    top: auto;
+    bottom: 0;
+    background-color: dodgerblue;
+    width: 100%;
+    font-weight: bolder;
+    color: red;
+    font-size: 30px;
+  }
+
+  .article-text-header {
+    justify-content: space-around;
+  }
+
+
+}
+
+
+@media (max-width: 540px) {
+  .container {
+    max-width: 90% !important;
+    margin: auto;
+    font-size: 15px !important;
+  }
+
+  .article-text-edit {
+    width: 80%;
+    right: 2rem;
+    left: 2rem;
+    bottom: 31px;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+  .container {
+    max-width: 90% !important;
+    margin: auto;
+    font-size: 12px !important;
+  }
+
+  .article-image img {
+    width: 9rem;
+  }
+
+  .article-text-public li {
+    height: auto !important;
+  }
+
+
+}
+
+
+
+
+body {
+  /* MYRESUME */
+  /* You can add global styles to this file, and also import other style files */
+  overflow-x: hidden;
+  box-sizing: border-box;
+  height: min-content;
+  // MYRESUME
+  // background-image: linear-gradient(to bottom right, rgb(127, 127, 127), rgb(255, 255, 255));
+  // background-image: linear-gradient(
+  //   rgb(255, 255, 255),
+  //   rgb(199, 199, 199),
+  //   rgb(255, 255, 255)
+  // );
+  // MYRESUME /
+}
+
+
+.heading_font_style {
+  font-family: 'Playfair Display', serif;
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  text-align: center;
+  width: 100%;
+}
+
+// EFFECT ANNOYING STICKY
+/*
+.pos_sticky {
+  position: sticky;
+  top: 1vh;
+}
+ */
+
+.text_color {
+  color: #f17338;
+  font-size: larger;
+  text-align: center;
+  font-weight: 300;
+}
+
+.blank_line_blue {
+  border-left: 30vw solid #69c3f3;
+  height: 0.2vh;
+}
+
+// EFFECT ANNOYING STICKY
+/* .pos_sticky_line{
+    position: sticky;
+    top: 5vh;
+}
+ */
+
+.subheading_font_style {
+  font-size: xx-large;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.detailed_text {
+  color: black;
+  text-align: center;
+  transition: all 1s;
+}
+
+
+.dark-bg {
+  transition: all 1s;
+  background-color: rgb(36, 36, 36);
+}
+
+.slide_content {
+  position: relative;
+  // display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #206c98;
+  padding-top: auto;
+  z-index: 1;
+  // NO OVERLAP ELEMENTS
+  height: auto;
+  // font-family: system-ui;
+}
+
+$bar-color: #206c98;
+$ball-color: #f17338;
+$bg-color: #aa1128;
+
+.loading {
+  position: absolute;
+  width: 100%;
+  top: 40vh;
+}
+
+.text {
+  margin: 0 auto;
+  font-weight: bolder;
+  text-align: center;
+  padding: 10px;
+}
+
+.dark-content {
+  color: white;
+  transition: all 1s;
+}
+
+/* // INITIAL LOADER OF PAGE */
+.loader {
+  margin: 0 auto;
+  position: relative;
+  width: 75px;
+  height: 100px;
+
+  &__bar {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 50%;
+    background: $bar-color;
+    transform-origin: center bottom;
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        left: ($i - 1) * 15px;
+        transform: scale(1, $i * 0.2);
+        animation: barUp#{$i} 4s infinite;
+      }
+    }
+  }
+
+  &__ball {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: $ball-color;
+    border-radius: 50%;
+    animation: ball 4s infinite;
+  }
+}
+
+@keyframes ball {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  5% {
+    transform: translate(8px, -14px);
+  }
+
+  10% {
+    transform: translate(15px, -10px);
+  }
+
+  17% {
+    transform: translate(23px, -24px);
+  }
+
+  20% {
+    transform: translate(30px, -20px);
+  }
+
+  27% {
+    transform: translate(38px, -34px);
+  }
+
+  30% {
+    transform: translate(45px, -30px);
+  }
+
+  37% {
+    transform: translate(53px, -44px);
+  }
+
+  40% {
+    transform: translate(60px, -40px);
+  }
+
+  50% {
+    transform: translate(60px, 0);
+  }
+
+  57% {
+    transform: translate(53px, -14px);
+  }
+
+  60% {
+    transform: translate(45px, -10px);
+  }
+
+  67% {
+    transform: translate(37px, -24px);
+  }
+
+  70% {
+    transform: translate(30px, -20px);
+  }
+
+  77% {
+    transform: translate(22px, -34px);
+  }
+
+  80% {
+    transform: translate(15px, -30px);
+  }
+
+  87% {
+    transform: translate(7px, -44px);
+  }
+
+  90% {
+    transform: translate(0, -40px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes barUp1 {
+  0% {
+    transform: scale(1, 0.2);
+  }
+
+  40% {
+    transform: scale(1, 0.2);
+  }
+
+  50% {
+    transform: scale(1, 1);
+  }
+
+  90% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 0.2);
+  }
+}
+
+@keyframes barUp2 {
+  0% {
+    transform: scale(1, 0.4);
+  }
+
+  40% {
+    transform: scale(1, 0.4);
+  }
+
+  50% {
+    transform: scale(1, 0.8);
+  }
+
+  90% {
+    transform: scale(1, 0.8);
+  }
+
+  100% {
+    transform: scale(1, 0.4);
+  }
+}
+
+@keyframes barUp3 {
+  0% {
+    transform: scale(1, 0.6);
+  }
+
+  100% {
+    transform: scale(1, 0.6);
+  }
+}
+
+@keyframes barUp4 {
+  0% {
+    transform: scale(1, 0.8);
+  }
+
+  40% {
+    transform: scale(1, 0.8);
+  }
+
+  50% {
+    transform: scale(1, 0.4);
+  }
+
+  90% {
+    transform: scale(1, 0.4);
+  }
+
+  100% {
+    transform: scale(1, 0.8);
+  }
+}
+
+@keyframes barUp5 {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  40% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1, 0.2);
+  }
+
+  90% {
+    transform: scale(1, 0.2);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* // INITIAL LOADER OF PAGE / */
+
+/* // FIX SOCIAL LINKS */
+.social-links {
+  height: 10rem;
+}
+
+/* MYRESUME / */

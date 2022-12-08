@@ -1,0 +1,40 @@
+<div>
+  <div class="submit-form">
+    <h4>Añadiendo contact</h4>
+    <div *ngIf="!submitted">
+      <!-- FORM -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="contact.title"
+          name="title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          required
+          [(ngModel)]="contact.description"
+          name="description"
+          rows="10"
+          cols="70"
+        ></textarea>
+      </div>
+
+      <button (click)="saveContact()" class="btn btn-success">Submit</button>
+      <!-- FORM /-->
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Contact was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newContact()">Add</button>
+    </div>
+  </div>
+</div>

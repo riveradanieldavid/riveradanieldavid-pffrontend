@@ -1,0 +1,122 @@
+<!-- HIDE AND SHOW ELEMENT -->
+<!-- SHOW WHEN ENTER OR LEAVE MOUSE -->
+<!-- <div (mouseenter)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- SHOW DOING CLICK CLOSE WINDOW MOVING MOUSE -->
+<!-- <div (click)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- SHOW DOING CLICK CLOSE WINDOW CLICK ON X -->
+<div *ngIf="isLoggedIn">
+  <button (click)="hideEditor()" *ngIf="!element" class="closeEditor">X</button>
+</div>
+<div (click)="showEditor()">
+  <!-- SHOW DOING CLICK CLOSE WINDOW CLICK ON X / -->
+  <!---------------------STANDARD VIEW ARTICLE --------------------->
+  <!-- DARKMODE -->
+  <div id="education" class="list row" [ngClass]="{ 'dark-content': darkMode }">
+    <div class="col-md-6 article-text-public">
+      <!-- <div *ngFor="let education of education">
+        TEST
+        {{ education.id }}
+      </div> -->
+      <!-- <div>{{ currentEducation.title }}TEST</div> -->
+      <!-- SHOW ALL ARTICLES TO PUBLIC (ngFor) -->
+      <ul class="list-group" *ngIf="!isLoggedIn; else editable">
+        <!-- RETRIEVE DATA WITHOUT FOR -->
+        <!-- <li class="list-group-item">
+            {{ currentEducation.title }}
+          </li> -->
+        <!-- STYLES IN FIRST ELEMENT ONLY -->
+        <li
+          data-aos="flip-right"
+          class="list-group-item"
+          *ngFor="let education of education; let i = index"
+          [class.active]="i == currentIndex"
+        >
+          <h5 class="articletitle">{{ education.title }}</h5>
+          <p>{{ education.description }}</p>
+        </li>
+      </ul>
+      <!-- SHOW ALL ARTICLES TO PUBLIC (ngFor)  / -->
+
+      <!-- SHOW ALL ARTICLES TO EDIT (ngFor)  -->
+      <ng-template #editable>
+        <ul class="list-group">
+          <!-- RETRIEVE DATA WITHOUT FOR -->
+          <!-- <li class="list-group-item">
+              {{ currentEducation.title }}
+            </li> -->
+          <!-- STYLES IN FIRST ELEMENT ONLY -->
+          <li
+            class="list-group-item"
+            *ngFor="let education of education; let i = index"
+            [class.active]="i == currentIndex"
+            (click)="setActiveEducation(education, i)"
+          >
+            <!-- ICONS EDITION -->
+            <!-- EDIT -->
+            <div class="icons-edit">
+              <a>
+                <img
+                  src="../../../../../assets/icons/edit/pencil-solid.svg"
+                  alt=""
+                  width="24"
+                />
+              </a>
+              <!-- DELETE -->
+              <!-- <a class="add" (click)="deleteEducation()">
+                <img
+                  src="../../../../../assets/icons/edit/trash-solid.svg"
+                  alt=""
+                  width="24"
+                />
+              </a> -->
+              <!-- ADD -->
+              <a routerLink="educations/add" class="add">
+                <img
+                  src="../../../../assets/icons/edit/plus-solid.svg"
+                  alt=""
+                  width="24"
+                />
+              </a>
+            </div>
+            <!-- ICONS EDITION -->
+            <h5 class="articletitle">{{ education.title }}</h5>
+            <p>{{ education.description }}</p>
+          </li>
+        </ul>
+      </ng-template>
+      <!-- SHOW ALL ARTICLES TO EDIT (ngFor)  / -->
+    </div>
+    <div></div>
+    <!-- SHOW ARTICLE TO EDIT TO THE USER REGISTERED ONLY -->
+    <!-- HIDE AND SHOW ELEMENT -->
+    <div *ngIf="element == false">
+      <div class="col-md-6 article-text-edit" *ngIf="isLoggedIn">
+        <app-education-details
+          [viewMode]="true"
+          [currentEducation]="ccccurrentEducation"
+          class="article-details-edit"
+        ></app-education-details>
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- HIDE AND SHOW ELEMENT / -->
+        <!--------------------- STANDARD VIEW ARTICLE /--------------------->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- CLOSE DOING CLICK ON BUTTON-->
+        <!-- MUST BE OUT OF <div (click)="showEditor()">-->
+        <!-- <button (click)="hideEditor()">Cerrar Editor</button> -->
+
+        <!-- <button (mouseleave)="hideEditor()">Cerrar Ventana</button> -->
+
+        <!-- HIDE AND SHOW ELEMENT -->
+        <!-- <div *ngIf="element == true"></div> -->
+        <!-- <div (mouseenter)="showEditor()"></div> -->
+        <!-- <button (mouseleave)="hideEditor()">Hide Data</button> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>

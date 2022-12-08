@@ -1,0 +1,92 @@
+<!-- HIDE AND SHOW ELEMENT -->
+<!---------------- THIS TOOLS WORK ON EDITOR! NO ON VIEW CARDS ---------------->
+<!-- SHOW WHEN ENTER OR LEAVE MOUSE -->
+<!-- <div (mouseenter)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- SHOW DOING CLICK CLOSE WINDOW MOVING MOUSE -->
+<!-- <div (click)="showEditor()" (mouseleave)="hideEditor()"> -->
+<!-- CLOSE WINDOW WITH CLICK -->
+<!-- <div  (click)="hideEditor()"> -->
+
+<!-- <div *ngIf="element == true"> -->
+<!------------------------------------ ANALIZED ERASABLE  --------------------------------------->
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ----------------->
+<!-- viewMode ORIGINAL -->
+<!-- !viewMode ADDED -->
+<!-- !viewMode TO SHOW EDITING FORM DIRECTLY -->
+<div *ngIf="!viewMode; else editable">
+  <!-- IF currentImage.id TRUE-->
+  <div *ngIf="currentImage.id">
+    <h4>about.details.component - viewMode</h4>
+    <!-- TITLE -->
+    <div>
+      <label><strong>Title:</strong></label>
+      {{ currentImage.name }}
+    </div>
+    <!-- DESCRIPTION -->
+    <div>
+      <label><strong>Description:</strong></label>
+      {{ currentImage.type }}
+    </div>
+    <!-- LINK TO EDITE MODE -->
+    <a
+      class="badge badge-warning"
+      routerLink="/about/edit/{{ currentImage.id }}"
+    >
+      Edit
+    </a>
+    <!-- LINK TO EDITE MODE / -->
+  </div>
+  <!-- IF currentImage.id TRUE / -->
+
+  <div *ngIf="!currentImage">
+    <br />
+    <p>Please click on a About...</p>
+  </div>
+</div>
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ---------------/ -->
+<!------------------------------------ ANALIZED ERASABLE / --------------------------------------->
+
+<!-- OPTION 2 -->
+<!-- ERASE VIEW MODE BLOCK (above) -->
+<!-- ERASE ng-template (below) -->
+<!-- ADD <div *ngIf="viewMode">edit mode...</div> (below) -->
+
+<!-------------- EDIT MODE VIEW------------------>
+<ng-template #editable>
+  <div *ngIf="currentImage.id" class="edit-form">
+    <h4>Editando Acerca de (imágen)</h4>
+    <!-- BUTTONS EDIT ------------->
+    <div class="article-buttons-edit">
+      <!-- DELETE -->
+      <button class="badge badge-danger mr-2" (click)="confirmDelete()">
+        Eliminar
+      </button>
+      <!-- DELETE / -->
+      <!-- ADD -->
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateAbout()"
+      >
+        Añadir
+      </button>
+      <!-- ADD / -->
+    </div>
+    <!-- BUTTONS EDIT -----------/ -->
+    <!-- FORM -------------------------------------------->
+
+    <form action="/action_page.php" class="editable">
+      <label for="myfile">Select a file:</label>
+      <input type="file" id="myfile" name="myfile" /><br /><br />
+      <input type="submit" />
+    </form>
+
+    <!-- FORM /-------------------------------------------->
+  </div>
+  <!-- IF currentImage.id FAIL -->
+  <!-- <div *ngIf="!currentImage.id">
+    <br />
+    <p>Seleccione un item a editar</p>
+  </div> -->
+</ng-template>
+<!-------------- EDIT MODE VIEW----------------/ -->

@@ -1,0 +1,33 @@
+CREATE PROJECT IN FIREBASE
+  SET LOCATION PROJECT IN https://console.firebase.google.com/u/0/project/pfapp2022/settings/general
+COMMANDS DEPLOY:
+  firebase login --interactive
+  ng build
+  firebase init
+     ( ) Firestore: Configure security rules and indexes files for Firestore (CHOOSE)
+     DONT SET DEFAULT...
+     What do you want to use as your public directory? (public) dist/portfolio-rivera-da
+     Configure as a single-page app (rewrite all urls to /index.html)? (y/N) n
+     Set up automatic builds and deploys with GitHub? (y/N) n
+     File dist/portfolio-rivera-da/index.html already exists. Overwrite? (y/N) n
+
+firebase.json
+{
+  "hosting": {
+    "public": "dist/portfolio-rivera-da",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+
+ng build
+firebase deploy

@@ -1,0 +1,108 @@
+<!------------------------------------ ANALIZED ERASABLE  --------------------------------------->
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ----------------->
+<!-- viewMode ORIGINAL -->
+<!-- !viewMode ADDED -->
+<!-- !viewMode TO SHOW EDITING FORM DIRECTLY -->
+<div *ngIf="!viewMode; else editable">
+  <!-- IF currentSkill.id TRUE-->
+  <div *ngIf="currentSkill.id">
+    <h4>skill.details.component - viewMode</h4>
+    <!-- HABILIDAD -->
+    <div>
+      <label><strong>Habilidad:</strong></label>
+      {{ currentSkill.nameskill }}
+    </div>
+    <!-- NIVEL -->
+    <div>
+      <label><strong>Nivel:</strong></label>
+      {{ currentSkill.levelskill }}
+    </div>
+    <!-- LINK TO EDITE MODE -->
+    <a
+      class="badge badge-warning"
+      routerLink="/skill/edit/{{ currentSkill.id }}"
+    >
+      Edit
+    </a>
+    <!-- LINK TO EDITE MODE / -->
+  </div>
+  <!-- IF currentSkill.id TRUE / -->
+
+  <div *ngIf="!currentSkill">
+    <br />
+    <p>Please click on a Skill...</p>
+  </div>
+</div>
+<!------------------ VIEW MODE. ELSE EDIT MODE (BELOW) ---------------/ -->
+<!------------------------------------ ANALIZED ERASABLE / --------------------------------------->
+
+<!-- OPTION 2 -->
+<!-- ERASE VIEW MODE BLOCK (above) -->
+<!-- ERASE ng-template (below) -->
+<!-- ADD <div *ngIf="viewMode">edit mode...</div> (below) -->
+
+<!-------------- EDIT MODE VIEW------------------>
+<ng-template #editable>
+  <div *ngIf="currentSkill.id" class="edit-form">
+    <h4>Editando Skill</h4>
+    <!-- BUTTONS EDIT -->
+    <div class="article-buttons-edit">
+      <!-- DELETE -->
+      <button class="badge badge-danger mr-2" (click)="confirmDelete()">
+        Eliminar
+      </button>
+      <!-- DELETE / -->
+      <!-- UPDATE -->
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateSkill()"
+      >
+        Actualizar
+      </button>
+      <!-- MESSAGE "This skill was updated successfully" -->
+      <span class="{{ message ? 'message' : '' }}">
+        {{ message }}
+      </span>
+      <!-- MESSAGE "This skill was updated successfully" / -->
+      <!-- UPDATE / -->
+    </div>
+    <!-- BUTTONS EDIT / -->
+    <!-- FORM -->
+    <form class="editable">
+      <!-- HABILIDAD -->
+      <div class="form-group">
+        <label for="nameskill">Habilidad</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nameskill"
+          [(ngModel)]="currentSkill.nameskill"
+          name="nameskill"
+        />
+      </div>
+      <!-- HABILIDAD / -->
+      <!-- NIVEL -->
+      <div class="form-group">
+        <label for="levelskill">Nivel</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="levelskill"
+          [(ngModel)]="currentSkill.levelskill"
+          name="levelskill "
+          rows="5"
+          cols="90"
+        ></textarea>
+      </div>
+      <!-- NIVEL / -->
+    </form>
+    <!-- FORM /-->
+  </div>
+  <!-- IF currentSkill.id FAIL -->
+  <!-- <div *ngIf="!currentSkill.id">
+    <br />
+    <p>Seleccione un item a editar</p>
+  </div> -->
+</ng-template>
+<!-------------- EDIT MODE VIEW----------------/ -->
