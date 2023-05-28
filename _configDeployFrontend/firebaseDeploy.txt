@@ -1,3 +1,7 @@
+npm i -g @angular/cli
+
+npm i -g firebase-tools
+
 CREATE PROJECT IN FIREBASE
   SET LOCATION PROJECT IN https://console.firebase.google.com/u/0/project/pfapp2022/settings/general
 COMMANDS DEPLOY:
@@ -31,3 +35,9 @@ firebase.json
 
 ng build
 firebase deploy
+
+angular.json // SET SIZE PROJECT TO BUILD
+
+firebase.json // SET FOLDER TO DEPLOY
+
+firebaserc.json // LIST OF PROJECTS IN FIREBASE
